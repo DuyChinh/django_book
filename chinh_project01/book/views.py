@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 from .models import Book
 from .forms import BookForm
 from django.contrib.auth.decorators import login_required
+from chinh_project01.cart.models import Cart
 
-# Hiển thị danh sách sách
 def book_list(request):
     books = Book.objects.all()
-    return render(request, "book/book_list.html", {"books": books})
+    carts = Cart.objects.all()
+    return render(request, "book/book_list.html", {"books": books, "num_cart": len(carts)})
 
-# Thêm sách mới
 @login_required
 def add_book(request):
     if request.method == "POST":
