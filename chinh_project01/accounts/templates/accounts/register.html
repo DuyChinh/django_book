@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .link {
+            margin-top: 10px;
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        label {
+            /* width: 40%; */
+            /* text-align: start; */
+        }
+
+        .form-control {
+           
+            /* display: flex; */
+            /* flex-direction: column; */
+        }
+
+        .lb {
+            text-align: start;
+            display: block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Đăng ký</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group-1">
+                <label class="lb" for="{{ form.username.id_for_label }}">Tên đăng nhập:</label>
+                {{ form.username }}
+                <!-- <input type="text" placeholder="Username..."/> -->
+                <small style="color: red;">{{ form.username.errors }}</small>
+            </div>
+        
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}" class="lb">Email:</label>
+                {{ form.email }}
+                <small style="color: red;">{{ form.email.errors }}</small>
+            </div>
+        
+            <div class="form-group">
+                <label class="lb" for="{{ form.password1.id_for_label }}">Mật khẩu:</label>
+                {{ form.password1 }}
+                <small style="color: red;">{{ form.password1.errors }}</small>
+            </div>
+        
+            <div class="form-group">
+                <label class="lb" for="{{ form.password2.id_for_label }}">Nhập lại mật khẩu:</label>
+                {{ form.password2 }}
+                <small style="color: red;">{{ form.password2.errors }}</small>
+            </div>
+            <button type="submit">Đăng kí</button>
+        </form>
+       
+
+        <a href="{% url 'login' %}" class="link">Đã có tài khoản? Đăng nhập</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .link {
+            margin-top: 10px;
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .lb {
+            text-align: start;
+            display: block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Đăng nhập</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="lb" for="{{ form.username.id_for_label }}">Tên đăng nhập:</label>
+                {{ form.username }}
+                <small style="color: red;">{{ form.username.errors }}</small>
+            </div>
+        
+            <div class="form-group">
+                <label class="lb" for="{{ form.password.id_for_label }}">Mật khẩu:</label>
+                {{ form.password }}
+                <small style="color: red;">{{ form.password.errors }}</small>
+            </div>
+        
+            <button type="submit">Đăng nhập</button>
+            <a href="{% url 'register' %}" class="link">Chưa có tài khoản? Đăng ký ngay</a>
+    
+        </form>
+    </div>
+    
+</body>
+</html>

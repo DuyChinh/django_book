@@ -1,0 +1,83 @@
+<!-- <h1>Thêm Sách</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Thêm</button>
+</form>
+<a href="{% url 'book_list' %}">Quay lại</a> -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thêm Sách</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">📚 Thêm Sách Mới</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Tiêu đề sách</label>
+                {{ form.title }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tác giả</label>
+                {{ form.author }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Giá</label>
+                {{ form.price }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mô tả</label>
+                {{ form.description }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Link Ảnh</label>
+                {{ form.image_url }}
+            </div>
+            <button type="submit" class="btn btn-custom w-100">📥 Thêm Sách</button>
+        </form>
+        <div class="text-center mt-3">
+            <a href="{% url 'book_list' %}" class="btn btn-outline-secondary">⬅️ Quay lại</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<!-- <ul>
+    {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong> - {{ book.author }} - {{ book.price }}$
+            <a href="{% url 'add_to_cart' book.id %}">Thêm vào Giỏ</a>
+        </li>
+    {% endfor %}
+</ul> -->
+
