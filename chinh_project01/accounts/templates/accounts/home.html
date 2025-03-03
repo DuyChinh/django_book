@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Trang Chủ</title>
     <style>
         body {
@@ -16,36 +14,6 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* flex-direction: column; */
-        }
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            /* text-align: center; */
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-right: 30px;
-            margin-top: 15px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        nav a:hover {
-            text-decoration: underline;
         }
         .container {
             background: white;
@@ -53,9 +21,6 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-top: 20px;
-            width: 80%;
-            max-width: 600px;
         }
         h2 {
             color: #333;
@@ -78,28 +43,7 @@
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <h3>ECOM</h3>
-        <nav>
-            <a href="{% url 'home' %}">Home</a>
-            <!-- <a href="{% url 'register' %}">Đăng ký</a> -->
-            {% if not user.is_authenticated %}
-                <a href="{% url 'login' %}">Đăng nhập</a>
-            {% endif %}
-            {% if user.is_authenticated %}
-                <div class="d-flex gap-2">
-                    <p>{{user.username}}</p>
-                    <a href="{% url 'logout' %}">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </a>
-                </div>
-            {% endif %}
-            <i class="fa-solid fa-cart-shopping"></i>
-        </nav>
-    </header>
-
-    <!-- <div class="container">
+    <div class="container">
         <h2>Chào mừng, {% if user.is_authenticated %} {{ user.username }} {% else %} Khách {% endif %}!</h2>
         {% if user.is_authenticated %}
             <p>Email: {{ user.email }}</p>
@@ -108,7 +52,6 @@
             <p>Bạn chưa đăng nhập.</p>
             <a href="{% url 'login' %}" class="btn">Đăng nhập</a>
         {% endif %}
-    </div> -->
-    
+    </div>
 </body>
 </html>

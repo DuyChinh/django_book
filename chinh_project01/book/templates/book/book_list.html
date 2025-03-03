@@ -144,10 +144,12 @@
         <!-- <h2 class="text-center mb-4">📚 Danh Sách Sách</h2> -->
 
         <!-- Nút Thêm Sách -->
-        <!-- <div class="d-flex justify-content-between mb-3">
+         {% if user.role == "admin" %}
+        <div class="d-flex justify-content-between mb-3">
             <a href="{% url 'add_book' %}" class="btn btn-success">➕ Thêm Sách</a>
-            <a href="{% url 'cart_view' %}" class="btn btn-warning">🛒 Xem Giỏ Hàng</a>
-        </div> -->
+            <!-- <a href="{% url 'cart_view' %}" class="btn btn-warning">🛒 Xem Giỏ Hàng</a> -->
+        </div>
+        {% endif %}
 
         <!-- Hiển thị danh sách sách -->
         <div class="row">

@@ -7,7 +7,7 @@ from chinh_project01.book.models import Book
 
 def home_or_login(request):
     if request.user.is_authenticated:  
-        return redirect('home')  
+        return redirect('book')  
     else:
         return redirect('login')
 
@@ -15,6 +15,7 @@ def home_or_login(request):
 def home_view(request):
     return render(request, "accounts/home.html", {"user": request.user})
 
+@login_required
 def book_list(request):
     books = Book.objects.all()
     return render(request, "book/book_list.html", {"books": books})

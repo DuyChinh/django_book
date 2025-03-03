@@ -36,11 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.humanize',
     'django.contrib.staticfiles',
     'chinh_project01.accounts',
     'chinh_project01.book',
     'chinh_project01.cart',
-    'django.contrib.humanize'
+    'chinh_project01.order',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +82,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'mongodb': {
+        'ENGINE': 'djongo',
+        'NAME': 'chinh_project01',
+        # 'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb://localhost:27017',   
+            'username': 'duychinh',
+            'password': '210203',
+            'authSource': 'admin',
+        }
     }
 }
 
